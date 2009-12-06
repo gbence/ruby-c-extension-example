@@ -1,0 +1,25 @@
+= Ruby C Extension Example
+
+It's a micro project that aims to demonstrate Ruby C extension programming.
+The extension computes the numerical average and variance of numbers (in an
+Array).
+
+You may watch the evolution of this example with `git checkout <previous_version_id>`.
+
+== Requirements
+
+- Ruby development headers.
+- mkmf.
+- C compiler.
+
+== Installation
+
+- Clone this git repo.
+- `cd ruby-c-extension-example/ext`
+- `ruby extconf.rb`
+- `make`
+
+== Tests
+
+Specs and related Rakefile are available on their usual paths.
+
