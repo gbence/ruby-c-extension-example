@@ -1,11 +1,12 @@
 #!/usr/bin/env ruby
 # encoding: UTF-8
 
-def benchmark n=10000, print=true, &block
+def benchmark n=10000, print=true, initializer=nil, &block
   times = []
   n.times do
+    init  = initializer ? initializer.call : nil
     start = Time.now
-    block.call
+    block.call(init)
     times << (Time.now-start)
   end
   m = times.mean
@@ -18,4 +19,7 @@ def generate n=100, r=1000
   return Array.new(n) { rand(r) }
 end
 
-benchmark { generate } if __FILE__==$0
+if __FILE__==$0
+  require File.expand_path('../../ext/variance_ext.so', __FILE__)
+  benchmark { generate }
+end

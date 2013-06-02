@@ -1,3 +1,6 @@
+.rvmrc
+.ruby-version
+.ruby-gemset
 ext/*.so
 ext/*.o
 ext/Makefile
